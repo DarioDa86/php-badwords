@@ -8,7 +8,7 @@ Stampare di nuovo il paragrafo e la sua lunghezza, dopo aver sostituito con tre 
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
-    $parolaCensurata = $_GET["censura"];
+    $parolaCensurata = $_GET["Censura"];
 
     $primoCapitolo = "Oh, una festa! Che bel modo felice di iniziare un romanzo! Sembra quasi che si voglia accentuare il contrasto tra la vita idilliaca e felice degli spensierati Hobbit e le ombre e i pericoli del mondo esterno…
 
@@ -22,7 +22,7 @@ Stampare di nuovo il paragrafo e la sua lunghezza, dopo aver sostituito con tre 
     
     Le preparazioni continuano per settimane. Arrivano notizie di fuochi d’artificio, come non se ne vedono nella Contea da un secolo. Carri di gente da fuori (soprattutto Nani) portano strani pacchetti a Casa Baggins. Un giorno si fa vedere anche Gandalf lo Stregone, con il suo mantello grigio, sciarpa argentea e cappello a punta blu. Vengono rizzate tende e padiglioni, appesi lampioni, installata un’enorme cucina all’aperto. Quello che Bilbo chiama festa è in realtà un insieme di spettacoli e divertimenti, con regali per tutti (è abitudine degli Hobbit fare regali agli invitati della propria festa di compleanno, non il contrario).";
     
-    $avvioCensura= str_replace($parolaCensurata ,'***', $primoCapitolo) ;
+    $avvioCensura= str_replace($parolaCensurata ,"***", $primoCapitolo) ;
 ?>
 
 <!DOCTYPE html>
@@ -38,28 +38,21 @@ Stampare di nuovo il paragrafo e la sua lunghezza, dopo aver sostituito con tre 
         <div>
             <h1>Il Signore degli Anelli</h1>
             <h3>Capitolo 1</h3>
-            <p>
-                <?php echo $primoCapitolo; ?>
-            </p>
-
-            <h4>
-                La lunghezza del capitolo è: <?php echo strlen($primoCapitolo); ?> caratteri.
-            </h4>
+            <p><?php echo $primoCapitolo; ?></p>
+            <h4>La lunghezza del capitolo è: <?php echo strlen($primoCapitolo); ?> caratteri.</h4>
         </div>
         <!-- /capitolo originale -->
         <hr>
         
         <!-- capitolo censurato -->
         <div>
-            <!-- <form action="">
-                <input type="text" name="Censura">
+            <form action="">
+                <input type="text" name="Censura" placeholder="Inserisci una parola da censurare">
                 <button type="submit">Censura</button>
-            </form> -->
+            </form>
             <h3>Capitolo 1 (censurato)</h3>
-            
-            <p>
-            <?php echo $avvioCensura; ?>
-            </p>
+            <p><?php echo $avvioCensura; ?></p>
+            <h4>La lunghezza del capitolo è: <?php echo strlen($avvioCensura); ?> caratteri.</h4>
         </div>
         <!-- /capitolo censurato -->
 
